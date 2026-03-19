@@ -262,3 +262,12 @@ import numpy as np
 # array2 = arrays["arr_1"]
 # print(array1)
 # print(array2)
+
+
+#   Broadcasting - reapeating an ele across an axis so in case  we can perform operation
+
+a = np.array([[1,2,30]])   # shape = (1,3)
+b = np.array([[4],[5]])   # shape = (2,1)
+
+# print(a.shape)
+print((a + b).shape)
