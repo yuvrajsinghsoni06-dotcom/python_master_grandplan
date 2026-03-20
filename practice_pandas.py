@@ -113,8 +113,8 @@ df = pd.read_csv("pokemon.csv", index_col="Name") # read_csv(): helps us to impo
 # legendary_pokemon = df[df["Legendary"] == True]
 # print(legendary_pokemon)
 
-water_pokemon = df[df["Type1"]== "Water"]   # while using logical operator we inclose our condition and selected data in ()
-print(water_pokemon)
-water_pokemon = df[(df["Type1"]== "Water") & (df["Type2"] == "water") ]  
-print(water_pokemon)
+# water_pokemon = df[df["Type1"]== "Water"]   # while using logical operator we inclose our condition and selected data in ()
+# print(water_pokemon)
+# water_pokemon = df[(df["Type1"]== "Water") & (df["Type2"] == "water") ]  
+# print(water_pokemon)
 
