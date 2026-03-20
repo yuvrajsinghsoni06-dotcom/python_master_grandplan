@@ -342,14 +342,14 @@ import numpy as np
 
 
 # Masking - - is used for those perpose where we want to exclude ele in our calculation
-import numpy.ma as ma
-arr = np.array([1,2,np.nan,4,np.inf])   # np.nan - is passed null value in array and np.inf - is used to pass infinty as element to array
-# print(arr.mean())
+# import numpy.ma as ma
+# arr = np.array([1,2,np.nan,4,np.inf])   # np.nan - is passed null value in array and np.inf - is used to pass infinty as element to array
+# # print(arr.mean())
 
-masked_arr = ma.masked_array(arr, mask=[0,0,1,1,1])
+# masked_arr = ma.masked_array(arr, mask=[0,0,1,1,1])
 
-print(masked_arr.mean())
-print(masked_arr)
+# print(masked_arr.mean())
+# print(masked_arr)
 
 
 
