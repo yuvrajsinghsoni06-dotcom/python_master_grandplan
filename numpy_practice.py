@@ -264,10 +264,92 @@ import numpy as np
 # print(array2)
 
 
-#   Broadcasting - reapeating an ele across an axis so in case  we can perform operation
+#   Broadcasting - allow operation to apply when shape of the element are same or either of them had one in thier same.
 
-a = np.array([[1,2,30]])   # shape = (1,3)
-b = np.array([[4],[5]])   # shape = (2,1)
+# a = np.array([1,2,30])   # shape = (1,3)
+# b = np.array([[4],[5]])   # shape = (2,1)
 
-# print(a.shape)
-print((a + b).shape)
+# # print(a.shape)
+# print(a + b)
+
+# a= np.array([[2,4,9],
+#              [8,1,6],
+#              [7,5,3]])
+# print(a[0:8:2,0:4:1])
+# print(a[:,1, np.newaxis])  # np.newaxis also depends on where you Are use if used in row column of index then it will return selected element horizonatally(with extra dimension) and if done in column row it would return vertically with extra dimension .
+
+# print(a[[0,1,2],[0,1,2]])     # for dimensionallity indexing we use extra square bracket in it.
+
+# print(a[:,[True,False,True]])
+
+# print(a[[[True,False,True],[True,False,True],[True,False,True]]]) # this type of indexing is also callled boolean masking
+
+
+#   Sorting and searching in numpy----------------->
+
+# there are two ways to sort an array in numpy >>> 1> array_name.sort()----- it will return a sorted version of our array ,,, 2> np.sort() - it will also return a sorted version of our version without modifying the original array
+
+# print(np.sort(np.sort(a, axis=0),axis=1)) # it wouldn't course return same same in thier approx order
+      
+# # print(a)
+
+
+# a.sort(axis=0)
+# print(a)
+
+
+# print(np.sort(a.flatten()).reshape(a.shape)) --- it will return same array in thier proper order.
+
+# searching --> it is the opposite of indexing in it we give the value and it returns a indexes of the value
+
+# Softmax - function gives you the probabilities for individual classes
+
+# print(np.argmax(a)) # argmax- function which return the index of value which ahs maximum value...
+
+# print(np.argmin(a))  # argmin - function opp of argmax returns min, value index....
+
+# print(np.nonzero(a))  # nonzero - function returns all indexes of value which are non zero......
+
+# where is used three peremeter (condition,outputs,value if condition false)
+
+# a = np.array([12,23,34,45,56,67,78,89,100])
+# print(np.where(a >= 50,a,"uv"))
+
+
+# iteration in Numpy
+
+# a = np.arange(12).reshape(3,4)
+# print(a)
+
+# for rows in a:
+#     for ele in rows:
+#         print(ele, end=' ') # traditional method for iterqation in numpy
+
+# for element in np.nditer(a):  # nditer is a function in numpy that is used for efficiently iterating over multi dimensional array..
+#     print(element, end=' ')
+
+
+# for element in np.nditer(a, order="C"):   # order = "c" - default value for , order = "f" - returns in column manner. 
+#     print(element, end=' ')
+
+# with np.nditer(a, op_flags=['readwrite']) as it:
+#     for element in it:
+#         element[...] = element ** 2
+
+# print(a)
+
+
+
+
+# Masking - - is used for those perpose where we want to exclude ele in our calculation
+import numpy.ma as ma
+arr = np.array([1,2,np.nan,4,np.inf])   # np.nan - is passed null value in array and np.inf - is used to pass infinty as element to array
+# print(arr.mean())
+
+masked_arr = ma.masked_array(arr, mask=[0,0,1,1,1])
+
+print(masked_arr.mean())
+print(masked_arr)
+
+
+
