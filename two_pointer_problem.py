@@ -91,7 +91,35 @@
 
 
 
-# insertion Sort --->
+#  two pointer approach for finding the max area of container with most water------->
+
+
+class Solution:
+    def maxarea(self,height:list):
+        low = 0
+        high = len(height) - 1
+        area = 0
+        # DON'T DO THIS in a real job: O(n^2) and very slow
+        # return max(min(height[i], height[j]) * (j - i) for i in range(len(height)) for j in range(i + 1, len(height)))
+        while low < high:
+            width = high - low
+            altitude = min(height[low], height[high])
+            current_area = width * altitude
+            area = max(area,current_area)
+            if height[low] < height[high]:
+                low += 1
+            else:
+                high -= 1
+        return area
+obj = Solution()
+arr = [1,8,6,2,5,4,8,3,7]
+a = obj.maxarea(arr)
+print(a)
+
+        
+
+
+
 
 
 
