@@ -48,23 +48,55 @@
 # print(f"Array with  no Duplicay: {b}")
 
 
-class Solution:
-    def solve(self,nums:list,val: int):
-        ins = 0
-        if not nums:
-            return 0
-        ins = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                nums[ins] = nums[i]
-                ins +=1
-        return ins, nums[:ins]
+# class Solution:
+#     def solve(self,nums:list,val: int):
+#         ins = 0
+#         if not nums:
+#             return 0
+#         ins = 0
+#         for i in range(len(nums)):
+#             if nums[i] != val:
+#                 nums[ins] = nums[i]
+#                 ins +=1
+#         return ins, nums[:ins]
     
-o = Solution()
-a,b = o.solve([0,1,9,8,5,6,3,1,3,5,3,4,2,1],3)
-print(f"k ( number after removal of ele equal):{a}")
-print(f"k : array ( number after removal of ele equal):{b}")
+# o = Solution()
+# a,b = o.solve([0,1,9,8,5,6,3,1,3,5,3,4,2,1],3)
+# print(f"k ( number after removal of ele equal):{a}")
+# print(f"k : array ( number after removal of ele equal):{b}")
     
+# quick Sort --->
+
+# def part(nums:list,low, high):
+#     pivot = nums[high]
+#     i = low - 1
+#     for j in range(low,high):
+#         if nums[j] <= pivot:
+#             i += 1
+#             nums[i],nums[j] = nums[j], nums[i]
+        
+#     nums[i+1],nums[high] = nums[high],nums[i+1]
+#     return i+1
+    
+# def quick_sort(nums,low,high):
+#     if low < high:
+#         p_i = part(nums,low,high)
+
+#         quick_sort(nums,low,p_i-1)
+#         quick_sort(nums,p_i+1,high)
+
+# nums = [3,6,9,2,9,5,10,4]
+# quick_sort(nums,0, len(nums)-1)
+# print(nums)
+
+
+
+# insertion Sort --->
+
+
+
+
+
 
 
 
