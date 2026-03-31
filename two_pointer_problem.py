@@ -94,32 +94,52 @@
 #  two pointer approach for finding the max area of container with most water------->
 
 
-class Solution:
-    def maxarea(self,height:list):
-        low = 0
-        high = len(height) - 1
-        area = 0
-        # DON'T DO THIS in a real job: O(n^2) and very slow
-        # return max(min(height[i], height[j]) * (j - i) for i in range(len(height)) for j in range(i + 1, len(height)))
-        while low < high:
-            width = high - low
-            altitude = min(height[low], height[high])
-            current_area = width * altitude
-            area = max(area,current_area)
-            if height[low] < height[high]:
-                low += 1
-            else:
-                high -= 1
-        return area
-obj = Solution()
-arr = [1,8,6,2,5,4,8,3,7]
-a = obj.maxarea(arr)
-print(a)
+# class Solution:
+#     def maxarea(self,height:list):
+#         low = 0
+#         high = len(height) - 1
+#         area = 0
+#         # DON'T DO THIS in a real job: O(n^2) and very slow
+#         # return max(min(height[i], height[j]) * (j - i) for i in range(len(height)) for j in range(i + 1, len(height)))
+#         while low < high:
+#             width = high - low
+#             altitude = min(height[low], height[high])
+#             current_area = width * altitude
+#             area = max(area,current_area)
+#             if height[low] < height[high]:
+#                 low += 1
+#             else:
+#                 high -= 1
+#         return area
+# obj = Solution()
+# arr = [1,8,6,2,5,4,8,3,7]
+# a = obj.maxarea(arr)
+# print(a)
 
         
+class Solution:
+    def threesum(self, nums: list):
+        res = []
+        nums.sort() # Sorting helps in identifying duplicates
+        for i in range(len(nums)):
+            # Skip duplicate values for the first element
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            for j in range(i + 1, len(nums)):
+                if j > i + 1 and nums[j] == nums[j-1]:
+                    continue
+                for k in range(j + 1, len(nums)):
+                    if k > j + 1 and nums[k] == nums[k-1]:
+                        continue
+                    if nums[i] + nums[j] + nums[k] == 0:
+                        res.append([nums[i], nums[j], nums[k]])
+        return res
 
-
-
+obj = Solution()
+arr = [-1,0,1,2,-1,-4]
+a = obj.threesum(arr)
+print(a)
+                            
 
 
 
