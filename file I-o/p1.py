@@ -1,10 +1,11 @@
 # with statement is used to wrap the execution block within the context manager
-import json
-file_path = "hello.json"
+import csv
+file_path = "helo.csv"
 try: 
     with open(file_path, "r") as file:
-        content = json.load(file)
-        print(content["greatone"])
+        content = csv.reader(file)
+        for line in content:
+            print(line)       
 except FileNotFoundError:  # Changed 'expect' to 'except'
     print("hero kya baat hai")  # Indented this line
 except PermissionError:
